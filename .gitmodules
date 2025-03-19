@@ -1,0 +1,3 @@
+[submodule "reference-work"]
+	path = reference-work
+	url = git@github.com:pmacinec/transactions-fraud-detection.git
