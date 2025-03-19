@@ -51,10 +51,3 @@ The project integrates natural phenomena-inspired algorithms, such as genetic al
 - [IEEE Fraud Detection Dataset on Kaggle](https://www.kaggle.com/c/ieee-fraud-detecon/overview)
 - [Transacons Fraud Detection on GitHub](https://github.com/pmacinec/transacons-fraud-detecon)
 
-## License
-
-Please refer to the LICENSE file in the repository for detailed licensing information.
-
-## Acknowledgments
-
-We thank Innopolis University for supporting this research and providing the necessary resources for the project.
