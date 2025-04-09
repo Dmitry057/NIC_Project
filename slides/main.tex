@@ -1,0 +1,94 @@
+%----------------------------------------------------------------------------------------
+%    PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\usetheme{SimpleDarkBlue}
+
+\usepackage{hyperref}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{Fraud Transaction Detection: Project Report}
+\subtitle{Nature Inspired Computing}
+
+\author{Nikita Zagainov, Dmitry Tetkin, Alisher Kamolov, Nikita Tsukanov}
+
+\institute
+{
+    Innopolis University
+}
+\date{April 2025} % Date, can be changed to a custom date
+
+%----------------------------------------------------------------------------------------
+%    PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{frame}
+	% Print the title page as the first slide
+	\titlepage
+\end{frame}
+
+
+\begin{frame}{Project Description}
+	Application of nature-inspired algorithms
+	to the problem of fraud transaction detection
+	in banking systems.
+	\begin{itemize}
+		\item Fraud detection is a critical task in banking systems
+		\item Most common approach is Machine Learning
+		\item We propose to use nature-inspired algorithms to fine-tune
+		      ML models to get better results
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}{Reference Work}
+	Our project was inspired by the following project:
+	\url{https://github.com/pmacinec/transactions-fraud-detection}
+	Our project's contribution is the following:
+	\begin{itemize}
+		\item Comparison with gradient boosting algorithms
+		\item Application of NIC algorithms to the gradient boosting
+		      algorithms
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Results}
+	\begin{table}
+		\begin{tabular}{l l l}
+			\toprule
+			\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2} \\
+			\midrule
+			Treatment 1         & 0.0003262           & 0.562               \\
+			Treatment 2         & 0.0015681           & 0.910               \\
+			Treatment 3         & 0.0009271           & 0.296               \\
+			\bottomrule
+		\end{tabular}
+		\caption{Table caption}
+	\end{table}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}{Conclusion}
+	...
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\Huge{\centerline{\textbf{The End}}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

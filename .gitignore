@@ -4,4 +4,10 @@
 *.out
 *.fls
 *.fdb_latexmk
+*.nav
+*.bbl
+*.blg
+*.snm
+*.toc
+*.vrb
 data/*.csv
