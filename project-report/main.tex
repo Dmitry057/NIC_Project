@@ -9,6 +9,7 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{makecell} % Added to support \makecell in tables
 \usepackage{hyperref} % Added to support clickable links
 \usepackage{float} % Required for the [H] float option
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -116,19 +117,20 @@ imbalanced, with a significantly smaller proportion of fraudulent
 transactions compared to non-fraudulent ones.
 This imbalance poses challenges for traditional machine
 learning models, which may become biased towards the majority class.
-Classical ML algorithms used in \cite{github} are not robust 
+Classical ML algorithms used in \cite{github} are not robust
 to this imbalance, leading to poor performance in detecting
-fraudulent transactions. However, in our work, 
+fraudulent transactions. However, in our work,
 gradient boosting algorithms which utilize ensemble learning
 are better suited for handling imbalanced datasets.
 
 \subsection{Experiment Setup}
-We setup our experiments as a series of model training and 
+We setup our experiments as a series of model training and
 evaluation steps. We first split the dataset into training and testing
 splits, and then we train model on the training split and evaluate on
 test split. After that, we apply NIC algorithms to select optimal
 features and train a model on the subsample of the features. Then
-we measure performance boost achieved by the NIC algorithm.
+we measure performance boost achieved by the NIC algorithm with
+\texttt{ROC AUC} metric.
 
 \subsection{Models \& NIC Algorithms}
 We evaluate two most popular gradient boosting algorithms:
@@ -152,25 +154,51 @@ We present the results of our experiments in Table \ref{tab:results}.
 
 \begin{table}[H]
 	\centering
-	\caption{Performance Comparison of Gradient Boosting Models with NIC Algorithms}
+	\caption{ROC AUC of ML models with NIC feature selection}
 	\label{tab:results}
-	\begin{tabular}{c c c}
+	\begin{tabular}{c c c c}
 		\hline
-		Method & CatBoost & LightGBM \\
+		Method                & CatBoost       & LightGBM       & DecisionTree   \\
 		\hline
-		Original Score & 0.85 & 0.83 \\
-		Firefly & 0.88 & 0.86 \\
-		Cuckoo Search & 0.87 & 0.85 \\
-		Bat Algorithm & 0.86 & 0.84 \\
-		Flower Pollination & 0.89 & 0.87 \\
-		Grey Wolf & 0.88 & 0.86 \\
+		Original Score        & \textbf{0.893} & 0.909          & 0.835          \\
+		Artificial Bee Colony & 0.887          & 0.906          & 0.836          \\
+		Cuckoo Search         & 0.891          & 0.905          & 0.842          \\
+		Bat Algorithm         & 0.889          & 0.909          & 0.842          \\
+		Firefly Algorithm     & 0.892          & 0.907          & 0.844          \\
+		Flower Pollination    & 0.891          & 0.906          & \textbf{0.846} \\
+		Grey Wolf Optimizer   & 0.892          & \textbf{0.913} & 0.844          \\
+		Particle Swarm        & 0.892          & 0.912          & 0.845          \\
+		\hline
+		\makecell{Algorithms better                                              \\
+		than baseline}        & 0              & 2              & 7              \\
 		\hline
 	\end{tabular}
 \end{table}
-...
+
+The results show that the performance of decision tree
+is increased by applying any algorithm, which supports
+results of \cite{github}. However, the performance of gradient
+boosting models is improved most of the time.
 
 \section{Conclusion}
-...
+In this work, we extend the research done by \cite{github} and
+apply NIC algorithms to gradient boosting models. We show that
+the performance of simple models, such as Decision Tree, is indeed
+improved by applying NIC algorithms. However, the performance
+of more advanced models, such as CatBoost and LightGBM, is more
+likely to drop after applying feature selection with NIC algorithms.
+
+We hypothesize that the reason for this is that gradient boosting
+models are less prone to overfit on large amount of features than
+a single-tree model, which is why feature pruning does not
+improve the generalization of such models.
+
+As a result of our work, we extended the research done by \cite{github}
+and applied NIC algorithms to feature selection for gradient boosting
+models and showed that the performance is not always improved,
+and we conclude that NIC algorithms for feature selection
+might be applicable for Fraud Detection task only in case of
+simple models prone to overfitting.
 
 \begin{thebibliography}{00}
 	\bibitem{github} GitHub, ``Transacons Fraud Detection,'' Available: \url{https://github.com/pmacinec/transacons-fraud-detecon}.

@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{makecell} % Allows the use of \makecell for table cells
 
 %----------------------------------------------------------------------------------------
 %    TITLE PAGE
@@ -64,29 +65,45 @@
 
 \begin{frame}{Results}
 	\begin{table}
-		\begin{tabular}{l l l}
-			\toprule
-			\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2} \\
-			\midrule
-			Treatment 1         & 0.0003262           & 0.562               \\
-			Treatment 2         & 0.0015681           & 0.910               \\
-			Treatment 3         & 0.0009271           & 0.296               \\
-			\bottomrule
+		\centering
+		\caption{ROC AUC of ML models with NIC feature selection}
+		\label{tab:results}
+		\begin{tabular}{c c c c}
+			\hline
+			Method                & CatBoost       & LightGBM       & DecisionTree   \\
+			\hline
+			Original Score        & \textbf{0.893} & 0.909          & 0.835          \\
+			Artificial Bee Colony & 0.887          & 0.906          & 0.836          \\
+			Cuckoo Search         & 0.891          & 0.905          & 0.842          \\
+			Bat Algorithm         & 0.889          & 0.909          & 0.842          \\
+			Firefly Algorithm     & 0.892          & 0.907          & 0.844          \\
+			Flower Pollination    & 0.891          & 0.906          & \textbf{0.846} \\
+			Grey Wolf Optimizer   & 0.892          & \textbf{0.913} & 0.844          \\
+			Particle Swarm        & 0.892          & 0.912          & 0.845          \\
+			\hline
+			\makecell{Algorithms better                                              \\
+			than baseline}        & 0              & 2              & 7              \\
+			\hline
 		\end{tabular}
-		\caption{Table caption}
 	\end{table}
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}{Conclusion}
-	...
+	\begin{itemize}
+		\item NIC algorithms for feature selection do not improve
+		      performance of gradient boosting models
+		\item We hypothesize that the reason for such difference
+		      in results between single tree and ensemble is that
+		      single tree is more prone to overfitting
+	\end{itemize}
 \end{frame}
 
 %------------------------------------------------
 
 \begin{frame}
-	\Huge{\centerline{\textbf{The End}}}
+	\Huge{\centerline{\textbf{Thank you for your attention!}}}
 \end{frame}
 
 %----------------------------------------------------------------------------------------
