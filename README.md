@@ -1,53 +1,84 @@
-# Nature Inspired Computing Research Proposal: Transaction Fraud Detection
+# Fraud Transaction Detection: Nature Inspired Computing
 
-This project aims to develop a robust system for detecting fraudulent transactions by combining nature inspired computing techniques with classical machine learning methods.
+This repository contains the project report, presentation slides, and source code for our research on applying **Nature Inspired Computing (NIC)** algorithms to enhance machine learning models for fraud detection in banking systems.
 
-## Project Overview
+## Overview
 
-The project integrates natural phenomena-inspired algorithms, such as genetic algorithms and swarm intelligence, with supervised learning models. This hybrid approach is intended to optimize both feature selection and model performance in identifying fraudulent patterns within financial data.
+Fraud detection is a critical task in domains like banking, e-commerce, and insurance. Traditional machine learning methods often struggle with imbalanced datasets and require extensive hyperparameter tuning. Our project explores the use of NIC algorithms to optimize feature selection and improve the performance of machine learning models, particularly gradient boosting algorithms.
 
-## Key Features
+## Key Contributions
 
-- **Hybrid Methodology:** Integration of nature inspired computing algorithms with machine learning models for improved fraud detection.
-- **Data Preprocessing:** Comprehensive exploratory data analysis and data transformation pipelines.
-- **Algorithm Prototyping:** Iterative development and tuning of both natural computing and machine learning components.
-- **System Testing:** Full-scale testing to evaluate the performance and accuracy of the integrated system.
-- **Documentation & Reporting:** Detailed documentation, including system design choices and testing outcomes.
+- **Comparison with Gradient Boosting Models**: We evaluate the performance of NIC algorithms when applied to advanced models like CatBoost and LightGBM.
+- **Feature Selection with NIC Algorithms**: We analyze the impact of NIC-based feature selection on model performance.
+- **Comprehensive Results**: Our experiments reveal insights into the applicability of NIC algorithms for fraud detection tasks.
 
-## Timeline
+## Methodology
 
-- **Weeks 1-2:**  
-  - Project kickoff and requirements gathering.
-  - Initial dataset inspection and preprocessing setup.
-  
-- **Weeks 3-4:**  
-  - Development and prototyping of nature inspired computing algorithms.
-  - Establish baseline machine learning models.
+1. **Dataset**: We used the publicly available [IEEE Fraud Detection Dataset](https://www.kaggle.com/c/ieee-fraud-detection/overview).
+2. **Models**:
+   - Gradient Boosting Models: CatBoost, LightGBM
+   - Baseline: Decision Tree
+3. **NIC Algorithms**:
+   - Firefly Algorithm
+   - Cuckoo Search Algorithm
+   - Bat Algorithm
+   - Flower Pollination Algorithm
+   - Grey Wolf Optimizer
+   - Particle Swarm Optimization
+4. **Evaluation Metric**: ROC AUC
 
-- **Weeks 5-6:**  
-  - Integration of hybrid approach.
-  - Continuous testing and refinement of algorithms and models.
+## Results
 
-- **Weeks 7-8:**  
-  - Comprehensive system testing and performance evaluation.
-  - Documentation, final report preparation, and project presentation.
+The table below summarizes the performance of machine learning models with NIC-based feature selection:
 
-## Contributors
+| Method                | CatBoost       | LightGBM       | DecisionTree   |
+|-----------------------|----------------|----------------|----------------|
+| **Original Score**    | **0.893**      | 0.909          | 0.835          |
+| Artificial Bee Colony | 0.887          | 0.906          | 0.836          |
+| Cuckoo Search         | 0.891          | 0.905          | 0.842          |
+| Bat Algorithm         | 0.889          | 0.909          | 0.842          |
+| Firefly Algorithm     | 0.892          | 0.907          | 0.844          |
+| Flower Pollination    | 0.891          | 0.906          | **0.846**      |
+| Grey Wolf Optimizer   | 0.892          | **0.913**      | 0.844          |
+| Particle Swarm        | 0.892          | 0.912          | 0.845          |
 
-- **Nikita Zagainov:**  
-  Data preprocessing and exploratory data analysis; development of data cleaning and transformation pipelines.
-  
-- **Dmitry Tetkin:**  
-  Design and prototyping of nature inspired computing algorithms; iterative integration improvements.
+### Visual Representation
 
-- **Alisher Kamolov:**  
-  Implementation and tuning of machine learning models; integration of model outputs with nature inspired methods.
+![Algorithm Scores](assets/algorithm_scores.png)
 
-- **Nikita Tsukanov:**  
-  End-to-end system testing and performance evaluation; comprehensive documentation and final report preparation.
+## Conclusion
+
+- NIC algorithms improve the performance of simple models like Decision Tree but do not consistently enhance gradient boosting models.
+- Gradient boosting models are less prone to overfitting on large feature sets, reducing the effectiveness of NIC-based feature selection.
+
+## Repository Structure
+
+```
+project/
+├── README.md               # Project documentation
+├── reference-work/         # Original research (Decision Tree) repo
+├── propopsal/              # LaTeX source for the project proposal
+├── project-report/         # LaTeX source for the project report
+├── slides/                 # LaTeX source for presentation slides
+├── assets/                 # Images and other assets
+└── notebooks/              # Source code for experiments
+```
 
 ## References
 
-- [IEEE Fraud Detection Dataset on Kaggle](https://www.kaggle.com/c/ieee-fraud-detecon/overview)
-- [Transacons Fraud Detection on GitHub](https://github.com/pmacinec/transacons-fraud-detecon)
+1. [GitHub: Transactions Fraud Detection](https://github.com/pmacinec/transactions-fraud-detection)
+2. [IEEE Fraud Detection Dataset](https://www.kaggle.com/c/ieee-fraud-detection/overview)
+3. [CatBoost: Unbiased Boosting with Categorical Features](https://arxiv.org/abs/1706.09516)
+4. [LightGBM: A Highly Efficient Gradient Boosting Decision Tree](https://proceedings.neurips.cc/paper_files/paper/2017/file/6449f44a102fde848669bdd9eb6b76fa-Paper.pdf)
+5. [NiaPy: Nature-Inspired Algorithms](https://github.com/NiaOrg/NiaPy)
 
+## Authors
+
+- Nikita Zagainov
+- Dmitry Tetkin
+- Alisher Kamolov
+- Nikita Tsukanov
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
