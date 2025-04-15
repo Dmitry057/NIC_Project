@@ -29,21 +29,6 @@ Fraud detection is a critical task in domains like banking, e-commerce, and insu
 
 ## Results
 
-The table below summarizes the performance of machine learning models with NIC-based feature selection:
-
-| Method                | CatBoost       | LightGBM       | DecisionTree   |
-|-----------------------|----------------|----------------|----------------|
-| **Original Score**    | **0.893**      | 0.909          | 0.835          |
-| Artificial Bee Colony | 0.887          | 0.906          | 0.836          |
-| Cuckoo Search         | 0.891          | 0.905          | 0.842          |
-| Bat Algorithm         | 0.889          | 0.909          | 0.842          |
-| Firefly Algorithm     | 0.892          | 0.907          | 0.844          |
-| Flower Pollination    | 0.891          | 0.906          | **0.846**      |
-| Grey Wolf Optimizer   | 0.892          | **0.913**      | 0.844          |
-| Particle Swarm        | 0.892          | 0.912          | 0.845          |
-
-### Visual Representation
-
 ![Algorithm Scores](assets/algorithm_scores.png)
 
 ## Conclusion
