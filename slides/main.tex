@@ -1,0 +1,165 @@
+%----------------------------------------------------------------------------------------
+%    PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\usetheme{SimpleDarkBlue}
+
+\usepackage{hyperref}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{makecell} % Allows the use of \makecell for table cells
+\usepackage{listings} % For code listings
+\usepackage{bera} % For a better font in listings
+
+%----------------------------------------------------------------------------------------
+%    TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{Fraud Transaction Detection: Project Report}
+\subtitle{Nature Inspired Computing}
+
+\author{Nikita Zagainov, Dmitry Tetkin, Alisher Kamolov, Nikita Tsukanov}
+
+\institute
+{
+    Innopolis University
+}
+\date{April 2025} % Date, can be changed to a custom date
+
+%----------------------------------------------------------------------------------------
+%    PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{frame}
+	% Print the title page as the first slide
+	\titlepage
+\end{frame}
+
+%------------------------------------------------
+% Additional Slide: Understanding the Fraud Detection Domain
+\begin{frame}{Understanding the Fraud Detection Domain}
+	\begin{itemize}
+		\item Digital and contactless payments are on the rise, increasing the risk of fraudulent transactions.
+		\item Fraud not only results in financial losses, but also reduces customer trust.
+		\item Datasets in this domain tend to be large and anonymized, posing unique challenges in feature interpretation.
+		\item Successful fraud detection requires managing imbalanced data and high-dimensional feature spaces.
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+% Additional Slide: Instruments and Methodologies
+\begin{frame}{Instruments and Methodologies}
+	\begin{itemize}
+		\item \textbf{Machine Learning Models:}
+		\begin{itemize}
+			\item Gradient boosting frameworks like CatBoost and LightGBM.
+			\item Decision Trees for baseline performance and interpretability.
+		\end{itemize}
+		\item \textbf{Optimization Techniques:}
+		\begin{itemize}
+			\item Nature-inspired algorithms (e.g., Bat Algorithm, Cuckoo Search, Grey Wolf Optimizer) for optimal feature selection.
+			\item Utilization of libraries (like NiaPy) to implement these algorithms.
+		\end{itemize}
+		\item \textbf{Data Preprocessing:}
+		\begin{itemize}
+			\item Handling missing data, encoding categorical variables, and addressing imbalances.
+			\item Dimensionality reduction to mitigate the curse of dimensionality.
+		\end{itemize}
+		\item \textbf{Evaluation Metrics:}
+		\begin{itemize}
+			\item ROC AUC is adopted as the main performance measure.
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+
+%------------------------------------------------
+\begin{frame}{Reference Work}
+	Our project was inspired by the following project:
+	\url{https://github.com/pmacinec/transactions-fraud-detection}
+	Our project's contribution is the following:
+	\begin{itemize}
+		\item Comparison with gradient boosting algorithms
+		\item Application of NIC algorithms to the gradient boosting algorithms
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+
+% Additional Slide: Project Pipeline Overview
+\begin{frame}{Project Pipeline Overview}
+    Our work follows a systematic pipeline:
+    \begin{enumerate}
+        \item \textbf{Data Preprocessing:}  
+        \begin{itemize}
+            \item Clean data by filling or removing missing values.
+            \item Encode categorical variables and standardize numerical features.
+            \item Reduce dimensionality while retaining key information.
+        \end{itemize}
+        \item \textbf{Feature Selection:}  
+        \begin{itemize}
+            \item Apply nature-inspired algorithms (NIC) for selecting optimal feature subsets.
+            \item Compare NIC-selected features against traditional methods.
+        \end{itemize}
+        \item \textbf{Model Training and Evaluation:}  
+        \begin{itemize}
+            \item Train robust ML models (CatBoost, LightGBM, Decision Trees) on the refined dataset.
+            \item Evaluate model performance using ROC AUC as the primary metric.
+        \end{itemize}
+        \item \textbf{Optimization and Analysis:}  
+        \begin{itemize}
+            \item Fine-tune models and re-run experiments to analyze the impact of feature selection.
+            \item Compare NIC algorithms to determine best performing configurations.
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+\begin{frame}{Results}
+	\begin{table}
+		\centering
+		\caption{ROC AUC of ML models with NIC feature selection}
+		\label{tab:results}
+		\begin{tabular}{c c c c}
+			\hline
+			Method                & CatBoost       & LightGBM       & DecisionTree   \\
+			\hline
+			Original Score        & \textbf{0.893} & 0.909          & 0.835          \\
+			Artificial Bee Colony & 0.887          & 0.906          & 0.836          \\
+			Cuckoo Search         & 0.891          & 0.905          & 0.842          \\
+			Bat Algorithm         & 0.889          & 0.909          & 0.842          \\
+			Firefly Algorithm     & 0.892          & 0.907          & 0.844          \\
+			Flower Pollination    & 0.891          & 0.906          & \textbf{0.846} \\
+			Grey Wolf Optimizer   & 0.892          & \textbf{0.913} & 0.844          \\
+			Particle Swarm        & 0.892          & 0.912          & 0.845          \\
+			\hline
+			\makecell{Algorithms better                                               \\
+			than baseline}        & 0              & 2              & 7              \\
+			\hline
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Conclusion}
+	\begin{itemize}
+		\item NIC algorithms for feature selection do not improve
+		      performance of gradient boosting models.
+		\item We hypothesize that the reason for such difference
+		      in results between a single tree and ensemble methods is that
+		      single trees are more prone to overfitting.
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+	\Huge{\centerline{\textbf{Thank you for your attention!}}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
