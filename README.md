@@ -46,6 +46,7 @@ project/
 ├── project-report/         # LaTeX source for the project report
 ├── slides/                 # LaTeX source for presentation slides
 ├── assets/                 # Images and other assets
+├── data/                   # Datasets used in the project
 └── notebooks/              # Source code for experiments
 ```
 
