@@ -49,6 +49,8 @@ project/
 ├── data/                   # Datasets used in the project
 └── notebooks/              # Source code for experiments
 ```
+Datasets are containing here - https://drive.google.com/file/d/1bxslIQO_ANsqVmZlAW8JCsjDFXp-XLPK/view?usp=sharing.
+After downloading and unzipping put it in the project folder
 
 ## References
 
