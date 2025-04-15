@@ -1,0 +1,10 @@
+seaborn
+matplotlib
+pandas
+numpy
+scikit-learn
+ipykernel
+joblib>=1.0.0
+niapy
+catboost
+lightgbm
